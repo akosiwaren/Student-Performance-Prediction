@@ -30,20 +30,31 @@ st.markdown(
     """
     
 
+
 <style>
+    /* MAIN PAGE */
     .stApp {
-        background: #FFFFFF;
+        background-color: #FFFFFF;
         color: #292929;
+    }
+
+    [data-testid="stHeader"] {
+        background-color: #FFFFFF;
     }
 
     .block-container {
         max-width: 680px;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
+        padding: 1rem 1rem 1.5rem 1rem;
+    }
+
+    /* HEADINGS */
+    h1, h2, h3 {
+        color: #292929 !important;
     }
 
     h1 {
         font-size: 1.4rem !important;
+        font-weight: 650 !important;
         margin-bottom: 0.2rem !important;
     }
 
@@ -51,6 +62,7 @@ st.markdown(
         font-size: 1rem !important;
     }
 
+    /* TEXT */
     .subtitle, .helper-text {
         color: #666666 !important;
         font-size: 0.78rem !important;
@@ -64,8 +76,9 @@ st.markdown(
         margin-bottom: 0.2rem;
     }
 
+    /* MODEL INFORMATION */
     .model-note {
-        background: #F8F9FA;
+        background-color: #F8F9FA;
         border: 1px solid #E5E5E5;
         border-left: 3px solid #8B3A45;
         padding: 8px 10px;
@@ -75,47 +88,69 @@ st.markdown(
         margin-bottom: 0.5rem;
     }
 
+    /* INPUT FORM */
     div[data-testid="stForm"] {
-        background: #F8F9FA;
+        background-color: #F8F9FA;
         border: 1px solid #E5E5E5;
         border-radius: 6px;
         padding: 0.5rem 0.7rem;
     }
 
+    /* INPUT LABELS */
     div[data-testid="stNumberInput"] label {
         color: #292929 !important;
         font-size: 0.72rem !important;
+        font-weight: 500;
     }
 
+    /* INPUT FIELDS */
     div[data-testid="stNumberInput"] input {
-        background: #FFFFFF !important;
+        background-color: #FFFFFF !important;
         color: #292929 !important;
+        border: 1px solid #DDDDDD !important;
+        border-radius: 5px;
         font-size: 0.8rem !important;
         min-height: 2rem !important;
     }
 
+    /* INPUT CONTROLS */
     div[data-testid="stNumberInput"] button {
         color: #8B3A45 !important;
     }
 
+    /* PREDICT BUTTON */
     div[data-testid="stFormSubmitButton"] button {
-        background: #8B3A45;
-        color: #FFFFFF;
-        border: none;
+        background-color: #8B3A45 !important;
+        color: #FFFFFF !important;
+        border: 1px solid #8B3A45 !important;
         border-radius: 5px;
         font-size: 0.8rem;
+        font-weight: 600;
         min-height: 2.1rem;
         padding: 0.3rem;
     }
 
+    div[data-testid="stFormSubmitButton"] button:hover {
+        background-color: #71303A !important;
+        border-color: #71303A !important;
+        color: #FFFFFF !important;
+    }
+
+    /* PREDICTION RESULT */
     div[data-testid="stAlert"] {
-        background: #F8F9FA !important;
+        background-color: #F8F9FA !important;
+        border: 1px solid #E5E5E5 !important;
         border-left: 3px solid #8B3A45 !important;
         border-radius: 5px;
     }
 
+    div[data-testid="stAlert"] p {
+        color: #292929 !important;
+    }
+
+    /* PROBABILITY METRICS */
     div[data-testid="stMetric"] {
-        background: #F8F9FA;
+        background-color: #F8F9FA;
         border: 1px solid #E5E5E5;
         border-radius: 5px;
         padding: 6px;
@@ -126,22 +161,36 @@ st.markdown(
         color: #292929 !important;
     }
 
+    /* EXPANDABLE SECTIONS */
     div[data-testid="stExpander"] {
-        background: #F8F9FA;
+        background-color: #F8F9FA;
         border: 1px solid #E5E5E5;
         border-radius: 5px;
     }
 
+    div[data-testid="stExpander"] summary {
+        color: #292929 !important;
+        font-size: 0.85rem;
+    }
+
+    /* TABLES */
+    div[data-testid="stDataFrame"] {
+        border: 1px solid #E5E5E5;
+        border-radius: 5px;
+    }
+
+    /* DIVIDERS */
+    hr {
+        border-color: #E5E5E5 !important;
+        margin: 0.6rem 0 !important;
+    }
+
+    /* FOOTER */
     .footer-note {
         color: #777777 !important;
         text-align: center;
         font-size: 0.7rem;
         margin-top: 1rem;
-    }
-
-    hr {
-        border-color: #E5E5E5 !important;
-        margin: 0.6rem 0 !important;
     }
 </style>
 
