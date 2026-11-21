@@ -29,52 +29,149 @@ st.set_page_config(
 st.markdown(
     """
 
+<style>
+    /* MAIN PAGE */
+    .stApp {
+        background-color: #FFFFFF;
+        color: #260707;
+    }
 
+    [data-testid="stHeader"] {
+        background-color: #FFFFFF;
+    }
 
+    .block-container {
+        max-width: 850px;
+        padding-top: 2.5rem;
+        padding-bottom: 3rem;
+    }
 
-/* Input form container */
-div[data-testid="stForm"] {
-    background-color: #E4CEC2;
-    border: 1px solid #905F66;
-    border-radius: 7px;
-    padding: 1.25rem;
-}
+    /* HEADINGS */
+    h1, h2, h3 {
+        color: #260707 !important;
+    }
 
-/* Individual input fields */
-div[data-testid="stNumberInput"] input {
-    background-color: #FAF1EC !important;
-    color: #260707 !important;
-    border: 1px solid #905F66 !important;
-}
+    h1 {
+        font-size: 2rem !important;
+        font-weight: 650 !important;
+    }
 
-/* Input labels */
-div[data-testid="stNumberInput"] label {
-    color: #260707 !important;
-    font-weight: 500;
-}
+    /* SUBTITLE AND HELPER TEXT */
+    .subtitle,
+    .helper-text {
+        color: #905F66 !important;
+    }
 
-/* Prediction result box */
-div[data-testid="stAlert"] {
-    background-color: #E4CEC2 !important;
-    border: 1px solid #905F66 !important;
-    color: #260707 !important;
-    border-radius: 6px;
-}
+    /* MODEL INFORMATION */
+    .model-note {
+        background-color: #FAF1EC;
+        border-left: 4px solid #4E0911;
+        padding: 14px;
+        color: #260707;
+        border-radius: 5px;
+    }
 
-/* Prediction result text */
-div[data-testid="stAlert"] p {
-    color: #260707 !important;
-}
+    /* STUDENT INPUT FORM */
+    div[data-testid="stForm"] {
+        background-color: #C9A99A;
+        border: 1px solid #905F66;
+        border-radius: 8px;
+        padding: 1.25rem;
+    }
 
-/* Calculated predictors and model details */
-div[data-testid="stExpander"] {
-    background-color: #FAF1EC;
-    border: 1px solid #905F66;
-    border-radius: 6px;
-}
+    /* INPUT LABELS */
+    div[data-testid="stNumberInput"] label {
+        color: #260707 !important;
+        font-weight: 500;
+    }
 
+    /* INPUT FIELDS */
+    div[data-testid="stNumberInput"] input {
+        background-color: #FAF1EC !important;
+        color: #260707 !important;
+        border: 1px solid #905F66 !important;
+        border-radius: 5px;
+    }
 
+    /* INPUT FIELD BUTTONS */
+    div[data-testid="stNumberInput"] button {
+        color: #4E0911 !important;
+    }
 
+    /* PREDICT BUTTON */
+    div[data-testid="stFormSubmitButton"] button {
+        background-color: #4E0911;
+        color: #FFFFFF;
+        border: 1px solid #4E0911;
+        border-radius: 5px;
+        font-weight: 600;
+        min-height: 2.7rem;
+    }
+
+    div[data-testid="stFormSubmitButton"] button:hover {
+        background-color: #905F66;
+        border-color: #905F66;
+        color: #FFFFFF;
+    }
+
+    /* PREDICTION RESULT */
+    div[data-testid="stAlert"] {
+        background-color: #C9A99A !important;
+        border: 1px solid #905F66 !important;
+        border-radius: 6px;
+        color: #260707 !important;
+    }
+
+    div[data-testid="stAlert"] p {
+        color: #260707 !important;
+    }
+
+    /* PREDICTION METRICS */
+    div[data-testid="stMetric"] {
+        background-color: #FAF1EC;
+        border: 1px solid #E4CEC2;
+        border-radius: 6px;
+        padding: 12px;
+    }
+
+    div[data-testid="stMetricLabel"] {
+        color: #905F66 !important;
+    }
+
+    div[data-testid="stMetricValue"] {
+        color: #260707 !important;
+    }
+
+    /* EXPANDABLE SECTIONS */
+    div[data-testid="stExpander"] {
+        background-color: #FAF1EC;
+        border: 1px solid #905F66;
+        border-radius: 6px;
+    }
+
+    div[data-testid="stExpander"] summary {
+        color: #260707 !important;
+    }
+
+    /* TABLES */
+    div[data-testid="stDataFrame"] {
+        border: 1px solid #E4CEC2;
+        border-radius: 5px;
+    }
+
+    /* DIVIDERS */
+    hr {
+        border-color: #E4CEC2 !important;
+    }
+
+    /* FOOTER */
+    .footer-note {
+        color: #905F66 !important;
+        text-align: center;
+        font-size: 0.78rem;
+        margin-top: 2rem;
+    }
+</style>
 
     """,
     unsafe_allow_html=True
