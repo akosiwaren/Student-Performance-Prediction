@@ -29,112 +29,82 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-        .stApp {
-            background-color: #FFFFFF;
-            color: #222222;
-        }
+    .stApp {
+        background-color: #FAF1EC;
+        color: #260707;
+    }
 
-        [data-testid="stHeader"] {
-            background-color: #FFFFFF;
-        }
+    [data-testid="stHeader"] {
+        background-color: #FAF1EC;
+    }
 
-        .block-container {
-            max-width: 850px;
-            padding-top: 2.5rem;
-            padding-bottom: 3rem;
-        }
+    .block-container {
+        max-width: 850px;
+        padding-top: 2.5rem;
+        padding-bottom: 3rem;
+    }
 
-        h1, h2, h3, p, label {
-            color: #222222;
-        }
+    h1, h2, h3 {
+        color: #260707 !important;
+    }
 
-        h1 {
-            font-size: 2rem !important;
-            font-weight: 650 !important;
-            letter-spacing: -0.5px;
-        }
+    h1 {
+        font-size: 2rem !important;
+        font-weight: 650 !important;
+    }
 
-        .subtitle {
-            color: #666666 !important;
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-        }
+    .subtitle, .helper-text {
+        color: #905F66 !important;
+    }
 
-        .model-note {
-            background-color: #F5F5F5;
-            border-left: 3px solid #777777;
-            padding: 12px 15px;
-            margin: 1.2rem 0 1.8rem 0;
-            font-size: 0.88rem;
-            color: #444444 !important;
-            border-radius: 3px;
-        }
+    .model-note {
+        background-color: #E4CEC2;
+        border-left: 4px solid #905F66;
+        padding: 14px;
+        color: #260707;
+        border-radius: 4px;
+    }
 
-        .section-heading {
-            font-size: 1.15rem;
-            font-weight: 600;
-            margin-top: 1.2rem;
-            margin-bottom: 0.3rem;
-            color: #222222 !important;
-        }
+    div[data-testid="stForm"] {
+        background-color: #FFFFFF;
+        border: 1px solid #E4CEC2;
+        border-radius: 6px;
+        padding: 1.25rem;
+    }
 
-        .helper-text {
-            color: #777777 !important;
-            font-size: 0.88rem;
-            margin-bottom: 1rem;
-        }
+    div[data-testid="stNumberInput"] input {
+        background-color: #FFFFFF !important;
+        color: #260707 !important;
+        border: 1px solid #E4CEC2 !important;
+    }
 
-        div[data-testid="stForm"] {
-            background-color: #FFFFFF;
-            border: 1px solid #DDDDDD;
-            border-radius: 6px;
-            padding: 1.25rem;
-        }
+    div[data-testid="stFormSubmitButton"] button {
+        background-color: #4E0911;
+        color: #FFFFFF;
+        border: 1px solid #4E0911;
+        border-radius: 5px;
+        font-weight: 600;
+    }
 
-        div[data-testid="stNumberInput"] label {
-            color: #333333 !important;
-            font-weight: 500;
-        }
+    div[data-testid="stFormSubmitButton"] button:hover {
+        background-color: #905F66;
+        border-color: #905F66;
+        color: #FFFFFF;
+    }
 
-        div[data-testid="stNumberInput"] input {
-            background-color: #FFFFFF !important;
-            color: #222222 !important;
-            border: 1px solid #CCCCCC !important;
-        }
+    div[data-testid="stExpander"] {
+        background-color: #FFFFFF;
+        border: 1px solid #E4CEC2;
+        border-radius: 6px;
+    }
 
-        div[data-testid="stFormSubmitButton"] button {
-            background-color: #333333;
-            color: #FFFFFF;
-            border: 1px solid #333333;
-            border-radius: 5px;
-            font-weight: 600;
-            min-height: 2.7rem;
-        }
-
-        div[data-testid="stFormSubmitButton"] button:hover {
-            background-color: #555555;
-            color: #FFFFFF;
-            border-color: #555555;
-        }
-
-        div[data-testid="stExpander"] {
-            background-color: #FFFFFF;
-            border: 1px solid #DDDDDD;
-            border-radius: 6px;
-        }
-
-        div[data-testid="stExpander"] summary {
-            color: #222222 !important;
-        }
-
-        .footer-note {
-            color: #999999 !important;
-            font-size: 0.78rem;
-            text-align: center;
-            margin-top: 2rem;
-        }
-
-    </style>
+    .footer-note {
+        color: #905F66 !important;
+        text-align: center;
+        font-size: 0.78rem;
+        margin-top: 2rem;
+    }
+</style>
     """,
     unsafe_allow_html=True
 )
