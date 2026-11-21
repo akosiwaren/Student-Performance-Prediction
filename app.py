@@ -29,6 +29,7 @@ st.set_page_config(
 st.markdown(
     """
 
+
 <style>
     /* MAIN PAGE */
     .stApp {
@@ -57,14 +58,13 @@ st.markdown(
     }
 
     /* SUBTITLE */
-    .subtitle,
-    .helper-text {
-        color: #905F66 !important;
+    .subtitle, .helper-text {
+        color: #84454B !important;
     }
 
     /* MODEL INFORMATION */
     .model-note {
-        background-color: #F7EDEE;
+        background-color: #F3EDEC;
         border-left: 4px solid #4E0911;
         padding: 14px;
         color: #260707;
@@ -73,15 +73,15 @@ st.markdown(
 
     /* INPUT FORM */
     div[data-testid="stForm"] {
-        background-color: #E8CBCD;
-        border: 1px solid #C58F95;
+        background-color: #6B252D;
+        border: 1px solid #4E0911;
         border-radius: 8px;
         padding: 1.25rem;
     }
 
     /* INPUT LABELS */
     div[data-testid="stNumberInput"] label {
-        color: #260707 !important;
+        color: #FFFFFF !important;
         font-weight: 500;
     }
 
@@ -89,7 +89,7 @@ st.markdown(
     div[data-testid="stNumberInput"] input {
         background-color: #FFFFFF !important;
         color: #260707 !important;
-        border: 1px solid #C58F95 !important;
+        border: 1px solid #A8797D !important;
         border-radius: 5px;
     }
 
@@ -109,42 +109,39 @@ st.markdown(
     }
 
     div[data-testid="stFormSubmitButton"] button:hover {
-        background-color: #905F66;
-        border-color: #905F66;
+        background-color: #84454B;
+        border-color: #84454B;
         color: #FFFFFF;
     }
 
     /* PREDICTION RESULT */
     div[data-testid="stAlert"] {
-        background-color: #E8CBCD !important;
-        border: 1px solid #C58F95 !important;
+        background-color: #6B252D !important;
+        border: 1px solid #4E0911 !important;
         border-radius: 6px;
     }
 
     div[data-testid="stAlert"] p {
-        color: #260707 !important;
+        color: #FFFFFF !important;
     }
 
     /* PROBABILITY METRICS */
     div[data-testid="stMetric"] {
-        background-color: #F7EDEE;
-        border: 1px solid #C58F95;
+        background-color: #84454B;
+        border: 1px solid #6B252D;
         border-radius: 6px;
         padding: 12px;
     }
 
-    div[data-testid="stMetricLabel"] {
-        color: #905F66 !important;
-    }
-
+    div[data-testid="stMetricLabel"],
     div[data-testid="stMetricValue"] {
-        color: #4E0911 !important;
+        color: #FFFFFF !important;
     }
 
     /* EXPANDABLE SECTIONS */
     div[data-testid="stExpander"] {
-        background-color: #F7EDEE;
-        border: 1px solid #C58F95;
+        background-color: #F3EDEC;
+        border: 1px solid #A8797D;
         border-radius: 6px;
     }
 
@@ -154,18 +151,18 @@ st.markdown(
 
     /* TABLES */
     div[data-testid="stDataFrame"] {
-        border: 1px solid #C58F95;
+        border: 1px solid #A8797D;
         border-radius: 5px;
     }
 
     /* DIVIDERS */
     hr {
-        border-color: #E8CBCD !important;
+        border-color: #A8797D !important;
     }
 
     /* FOOTER */
     .footer-note {
-        color: #905F66 !important;
+        color: #84454B !important;
         text-align: center;
         font-size: 0.78rem;
         margin-top: 2rem;
