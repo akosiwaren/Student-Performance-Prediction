@@ -18,20 +18,34 @@ METADATA_PATH = BASE_DIR / "model_metadata.json"
 st.set_page_config(
     page_title="Student Performance Predictor",
     page_icon=None,
-    layout="centered"
+    layout="centered",
+    initial_sidebar_state="collapsed"
 )
 
 # ------------------------------------------
-# CUSTOM DESIGN
+# LIGHT MODE DESIGN
 # ------------------------------------------
 
 st.markdown(
     """
     <style>
+        .stApp {
+            background-color: #FFFFFF;
+            color: #222222;
+        }
+
+        [data-testid="stHeader"] {
+            background-color: #FFFFFF;
+        }
+
         .block-container {
             max-width: 850px;
             padding-top: 2.5rem;
             padding-bottom: 3rem;
+        }
+
+        h1, h2, h3, p, label {
+            color: #222222;
         }
 
         h1 {
@@ -41,9 +55,19 @@ st.markdown(
         }
 
         .subtitle {
-            color: #667085;
+            color: #666666 !important;
             font-size: 0.95rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .model-note {
+            background-color: #F5F5F5;
+            border-left: 3px solid #777777;
+            padding: 12px 15px;
+            margin: 1.2rem 0 1.8rem 0;
+            font-size: 0.88rem;
+            color: #444444 !important;
+            border-radius: 3px;
         }
 
         .section-heading {
@@ -51,41 +75,65 @@ st.markdown(
             font-weight: 600;
             margin-top: 1.2rem;
             margin-bottom: 0.3rem;
+            color: #222222 !important;
         }
 
         .helper-text {
-            color: #667085;
+            color: #777777 !important;
             font-size: 0.88rem;
             margin-bottom: 1rem;
         }
 
         div[data-testid="stForm"] {
-            border: 1px solid #D0D5DD;
-            border-radius: 8px;
+            background-color: #FFFFFF;
+            border: 1px solid #DDDDDD;
+            border-radius: 6px;
             padding: 1.25rem;
         }
 
         div[data-testid="stNumberInput"] label {
+            color: #333333 !important;
             font-weight: 500;
         }
 
+        div[data-testid="stNumberInput"] input {
+            background-color: #FFFFFF !important;
+            color: #222222 !important;
+            border: 1px solid #CCCCCC !important;
+        }
+
         div[data-testid="stFormSubmitButton"] button {
-            border-radius: 6px;
+            background-color: #333333;
+            color: #FFFFFF;
+            border: 1px solid #333333;
+            border-radius: 5px;
             font-weight: 600;
             min-height: 2.7rem;
         }
 
+        div[data-testid="stFormSubmitButton"] button:hover {
+            background-color: #555555;
+            color: #FFFFFF;
+            border-color: #555555;
+        }
+
         div[data-testid="stExpander"] {
-            border: 1px solid #D0D5DD;
-            border-radius: 8px;
+            background-color: #FFFFFF;
+            border: 1px solid #DDDDDD;
+            border-radius: 6px;
+        }
+
+        div[data-testid="stExpander"] summary {
+            color: #222222 !important;
         }
 
         .footer-note {
-            color: #98A2B3;
+            color: #999999 !important;
             font-size: 0.78rem;
             text-align: center;
             margin-top: 2rem;
         }
+
     </style>
     """,
     unsafe_allow_html=True
@@ -163,6 +211,19 @@ st.markdown(
     Predict student midterm performance using
     Learning Management System (LMS) activity data.
     </p>
+    """,
+    unsafe_allow_html=True
+)
+
+st.markdown(
+    """
+    <div class="model-note">
+    <strong>Machine Learning Model:</strong>
+    This application uses the Gradient Boosting Classifier
+    developed and trained in Machine Problem 2 (MP2).
+    The original model and its preprocessing workflow
+    are retained for this application.
+    </div>
     """,
     unsafe_allow_html=True
 )
@@ -315,9 +376,13 @@ with st.expander("Model Details and Evaluation"):
 
     st.write("**Algorithm:** Gradient Boosting Classifier")
 
+    st.write("**Model Source:** Machine Problem 2 (MP2)")
+
     st.write("**Raw Input Variables:** 8")
 
-    st.write("**Engineered Variables:** 7 as described in MP2")
+    st.write("**Engineered Variables:** 7")
+
+    st.write("**Total Predictors:** 15")
 
     st.write("**Train-Test Split:** 80% / 20%")
 
@@ -370,7 +435,7 @@ with st.expander("Model Details and Evaluation"):
 st.markdown(
     """
     <p class="footer-note">
-    Machine Problem 2 | Student Performance Prediction System
+    Machine Problem 3 | Student Performance Prediction System
     </p>
     """,
     unsafe_allow_html=True
