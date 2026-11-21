@@ -30,14 +30,15 @@ st.markdown(
     """
 
 
+
 <style>
     .stApp {
-        background-color: #15345B;
-        color: #F1FAEF;
+        background-color: #FFFFFF;
+        color: #260707;
     }
 
     [data-testid="stHeader"] {
-        background-color: #15345B;
+        background-color: #FFFFFF;
     }
 
     .block-container {
@@ -46,8 +47,8 @@ st.markdown(
         padding-bottom: 3rem;
     }
 
-    h1, h2, h3, p {
-        color: #F1FAEF !important;
+    h1, h2, h3 {
+        color: #260707 !important;
     }
 
     h1 {
@@ -56,66 +57,67 @@ st.markdown(
     }
 
     .subtitle, .helper-text {
-        color: #ACD9DD !important;
+        color: #905F66 !important;
     }
 
     .model-note {
-        background-color: #4779A1;
-        border-left: 4px solid #ACD9DD;
+        background-color: #FAF1EC;
+        border-left: 4px solid #4E0911;
         padding: 14px;
-        color: #FFFFFF;
+        color: #260707;
         border-radius: 5px;
     }
 
     div[data-testid="stForm"] {
-        background-color: #1D4268;
-        border: 1px solid #4779A1;
+        background-color: #FFFFFF;
+        border: 1px solid #E4CEC2;
         border-radius: 7px;
         padding: 1.25rem;
     }
 
     div[data-testid="stNumberInput"] label {
-        color: #F1FAEF !important;
+        color: #260707 !important;
         font-weight: 500;
     }
 
     div[data-testid="stNumberInput"] input {
-        background-color: #F5F4F4 !important;
-        color: #15345B !important;
-        border: 1px solid #ACD9DD !important;
+        background-color: #FFFFFF !important;
+        color: #260707 !important;
+        border: 1px solid #E4CEC2 !important;
     }
 
     div[data-testid="stFormSubmitButton"] button {
-        background-color: #ACD9DD;
-        color: #15345B;
-        border: 1px solid #ACD9DD;
+        background-color: #4E0911;
+        color: #FFFFFF;
+        border: 1px solid #4E0911;
         border-radius: 5px;
         font-weight: 600;
     }
 
     div[data-testid="stFormSubmitButton"] button:hover {
-        background-color: #F1FAEF;
-        border-color: #F1FAEF;
-        color: #15345B;
+        background-color: #905F66;
+        border-color: #905F66;
+        color: #FFFFFF;
     }
 
     div[data-testid="stExpander"] {
-        background-color: #1D4268;
-        border: 1px solid #4779A1;
+        background-color: #FAF1EC;
+        border: 1px solid #E4CEC2;
         border-radius: 6px;
     }
 
     div[data-testid="stExpander"] summary {
-        color: #F1FAEF !important;
+        color: #260707 !important;
     }
 
     .footer-note {
-        color: #ACD9DD !important;
+        color: #905F66 !important;
         text-align: center;
         font-size: 0.78rem;
         margin-top: 2rem;
     }
 </style>
+
 
 
     """,
