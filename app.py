@@ -1,160 +1,149 @@
-    required behavioral predictors.
-    </p>
-    """,
-    unsafe_allow_html=True
-)
 
-labels = {
-    "Submission.Actions": "Submission Actions",
-    "Quiz.Actions": "Quiz Actions",
-    "Forum.Actions": "Forum Actions",
-    "Create.Actions": "Create Actions",
-    "Read.Actions": "Read Actions",
-    "Update.Actions": "Update Actions",
-    "Delete.Actions": "Delete Actions",
-    "Days.Logged.In": "Days Logged In"
-}
+<style>
+    /* MAIN PAGE */
+    .stApp {
+        background-color: #FFFFFF;
+        color: #292929;
+    }
 
-defaults = {
-    "Submission.Actions": 10,
-    "Quiz.Actions": 5,
-    "Forum.Actions": 2,
-    "Create.Actions": 10,
-    "Read.Actions": 100,
-    "Update.Actions": 5,
-    "Delete.Actions": 0,
-    "Days.Logged.In": 10
-}
+    [data-testid="stHeader"] {
+        background-color: #FFFFFF;
+    }
 
-with st.form("prediction_form"):
+    .block-container {
+        max-width: 850px;
+        padding-top: 2.5rem;
+        padding-bottom: 3rem;
+    }
 
-    left, right = st.columns(2)
+    /* HEADINGS */
+    h1, h2, h3 {
+        color: #292929 !important;
+    }
 
-    values = {}
+    h1 {
+        font-size: 2rem !important;
+        font-weight: 650 !important;
+    }
 
-    for i, feature in enumerate(metadata["raw_features"]):
+    /* SUBTITLE AND HELPER TEXT */
+    .subtitle, .helper-text {
+        color: #666666 !important;
+    }
 
-        column = left if i % 2 == 0 else right
+    /* MODEL INFORMATION */
+    .model-note {
+        background-color: #F8F9FA;
+        border: 1px solid #E5E5E5;
+        border-left: 4px solid #8B3A45;
+        padding: 14px;
+        color: #292929;
+        border-radius: 6px;
+    }
 
-        with column:
+    /* SECTION HEADINGS */
+    .section-heading {
+        color: #292929;
+        font-size: 1.15rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+    }
 
-            values[feature] = st.number_input(
-                labels[feature],
-                min_value=0,
-                value=defaults[feature],
-                step=1
-            )
+    /* INPUT FORM */
+    div[data-testid="stForm"] {
+        background-color: #F8F9FA;
+        border: 1px solid #E5E5E5;
+        border-radius: 8px;
+        padding: 1.25rem;
+    }
 
-    submitted = st.form_submit_button(
-        "Predict Performance",
-        type="primary",
-        use_container_width=True
-    )
+    /* INPUT LABELS */
+    div[data-testid="stNumberInput"] label {
+        color: #292929 !important;
+        font-weight: 500;
+    }
 
+    /* INPUT FIELDS */
+    div[data-testid="stNumberInput"] input {
+        background-color: #FFFFFF !important;
+        color: #292929 !important;
+        border: 1px solid #DDDDDD !important;
+        border-radius: 5px;
+    }
 
-# ------------------------------------------
-# PREDICTION
-# ------------------------------------------
+    /* INPUT CONTROLS */
+    div[data-testid="stNumberInput"] button {
+        color: #8B3A45 !important;
+    }
 
-if submitted:
+    /* PREDICT BUTTON */
+    div[data-testid="stFormSubmitButton"] button {
+        background-color: #8B3A45;
+        color: #FFFFFF;
+        border: 1px solid #8B3A45;
+        border-radius: 5px;
+        font-weight: 600;
+        min-height: 2.7rem;
+    }
 
-    raw_input = pd.DataFrame(
-        [values],
-        columns=metadata["raw_features"]
-    )
+    div[data-testid="stFormSubmitButton"] button:hover {
+        background-color: #71303A;
+        border-color: #71303A;
+        color: #FFFFFF;
+    }
 
-    model_input = engineer_features(raw_input)
+    /* PREDICTION RESULT */
+    div[data-testid="stAlert"] {
+        background-color: #F8F9FA !important;
+        border: 1px solid #E5E5E5 !important;
+        border-left: 4px solid #8B3A45 !important;
+        border-radius: 6px;
+    }
 
-    prediction = model.predict(model_input)[0]
+    div[data-testid="stAlert"] p {
+        color: #292929 !important;
+    }
 
-    probabilities = model.predict_proba(model_input)[0]
+    /* PROBABILITY METRICS */
+    div[data-testid="stMetric"] {
+        background-color: #F8F9FA;
+        border: 1px solid #E5E5E5;
+        border-radius: 6px;
+        padding: 12px;
+    }
 
-    class_probabilities = dict(
-        zip(model.classes_, probabilities)
-    )
+    div[data-testid="stMetricLabel"],
+    div[data-testid="stMetricValue"] {
+        color: #292929 !important;
+    }
 
-    high_prob = float(
-        class_probabilities.get("High", 0)
-    )
+    /* EXPANDABLE SECTIONS */
+    div[data-testid="stExpander"] {
+        background-color: #F8F9FA;
+        border: 1px solid #E5E5E5;
+        border-radius: 6px;
+    }
 
-    low_prob = float(
-        class_probabilities.get("Low", 0)
-    )
+    div[data-testid="stExpander"] summary {
+        color: #292929 !important;
+    }
 
-    st.divider()
+    /* TABLES */
+    div[data-testid="stDataFrame"] {
+        border: 1px solid #E5E5E5;
+        border-radius: 5px;
+    }
 
-    st.markdown(
-        '<p class="section-heading">Prediction Result</p>',
-        unsafe_allow_html=True
-    )
+    /* DIVIDERS */
+    hr {
+        border-color: #E5E5E5 !important;
+    }
 
-    if prediction == "High":
-
-        st.success("Predicted Category: High Performance")
-
-    else:
-
-        st.warning("Predicted Category: Low Performance")
-
-    col1, col2 = st.columns(2)
-
-    col1.metric(
-        "High Performance Probability",
-        f"{high_prob * 100:.1f}%"
-    )
-
-    col2.metric(
-        "Low Performance Probability",
-        f"{low_prob * 100:.1f}%"
-    )
-
-    with st.expander("View Calculated Predictors"):
-
-        st.dataframe(
-            model_input.T.rename(
-                columns={0: "Value"}
-            ),
-            use_container_width=True
-        )
-
-    st.caption(
-        "This prediction is an early-warning estimate "
-        "based on LMS activity. It should support academic "
-        "intervention and not determine a student's grade."
-    )
-
-
-# ------------------------------------------
-# MODEL INFORMATION
-# ------------------------------------------
-
-with st.expander("Model Details and Evaluation"):
-
-    st.write("**Algorithm:** Gradient Boosting Classifier")
-
-    st.write("**Model Source:** Machine Problem 2 (MP2)")
-
-    st.write("**Raw Input Variables:** 8")
-
-    st.write("**Engineered Variables:** 7")
-
-    st.write("**Total Predictors:** 15")
-
-    st.write("**Train-Test Split:** 80% / 20%")
-
-    st.write(
-        f"**Training Records:** {metadata['training_rows']:,}"
-    )
-
-    st.write(
-        f"**Testing Records:** {metadata['testing_rows']:,}"
-    )
-
-    st.write(
-        f"**Holdout Accuracy:** "
-        f"{metadata['accuracy'] * 100:.2f}%"
-    )
-
-    st.write(
-        f"**ROC-AUC:** {metadata['roc_auc']:.3f}"
-    )
+    /* FOOTER */
+    .footer-note {
+        color: #777777 !important;
+        text-align: center;
+        font-size: 0.78rem;
+        margin-top: 2rem;
+    }
+</style>
