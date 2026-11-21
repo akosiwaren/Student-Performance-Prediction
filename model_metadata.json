@@ -1,0 +1,99 @@
+{
+  "raw_features": [
+    "Submission.Actions",
+    "Quiz.Actions",
+    "Forum.Actions",
+    "Create.Actions",
+    "Read.Actions",
+    "Update.Actions",
+    "Delete.Actions",
+    "Days.Logged.In"
+  ],
+  "engineered_features": [
+    "Submission.Actions",
+    "Quiz.Actions",
+    "Forum.Actions",
+    "Create.Actions",
+    "Read.Actions",
+    "Update.Actions",
+    "Delete.Actions",
+    "Days.Logged.In",
+    "Total_Actions",
+    "Active_Actions",
+    "Passive_Actions",
+    "Actions_Per_Day",
+    "Active_Per_Day",
+    "Active_Ratio",
+    "Quiz_Submission_Sum",
+    "Log_Total_Actions",
+    "Log_Days_Logged_In"
+  ],
+  "accuracy": 0.9042995839112344,
+  "roc_auc": 0.9583718067097569,
+  "classification_report": {
+    "High": {
+      "precision": 0.9506172839506173,
+      "recall": 0.853185595567867,
+      "f1-score": 0.8992700729927007,
+      "support": 361.0
+    },
+    "Low": {
+      "precision": 0.8664987405541562,
+      "recall": 0.9555555555555556,
+      "f1-score": 0.9088507265521797,
+      "support": 360.0
+    },
+    "accuracy": 0.9042995839112344,
+    "macro avg": {
+      "precision": 0.9085580122523867,
+      "recall": 0.9043705755617113,
+      "f1-score": 0.9040603997724401,
+      "support": 721.0
+    },
+    "weighted avg": {
+      "precision": 0.9086163468871971,
+      "recall": 0.9042995839112344,
+      "f1-score": 0.9040537557685848,
+      "support": 721.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      308,
+      53
+    ],
+    [
+      16,
+      344
+    ]
+  ],
+  "training_rows": 2881,
+  "testing_rows": 721,
+  "class_counts": {
+    "High": 1801,
+    "Low": 1801
+  },
+  "random_seed": 42,
+  "model_parameters": {
+    "ccp_alpha": 0.0,
+    "criterion": "friedman_mse",
+    "init": null,
+    "learning_rate": 0.08,
+    "loss": "log_loss",
+    "max_depth": 6,
+    "max_features": "sqrt",
+    "max_leaf_nodes": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 3,
+    "min_samples_split": 5,
+    "min_weight_fraction_leaf": 0.0,
+    "n_estimators": 300,
+    "n_iter_no_change": null,
+    "random_state": 42,
+    "subsample": 0.85,
+    "tol": 0.0001,
+    "validation_fraction": 0.1,
+    "verbose": 0,
+    "warm_start": false
+  }
+}
