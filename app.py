@@ -28,14 +28,15 @@ st.set_page_config(
 
 st.markdown(
     """
-    <style>
+
+<style>
     .stApp {
-        background-color: #FAF1EC;
-        color: #260707;
+        background-color: #F1FAEF;
+        color: #15345B;
     }
 
     [data-testid="stHeader"] {
-        background-color: #FAF1EC;
+        background-color: #F1FAEF;
     }
 
     .block-container {
@@ -45,7 +46,7 @@ st.markdown(
     }
 
     h1, h2, h3 {
-        color: #260707 !important;
+        color: #15345B !important;
     }
 
     h1 {
@@ -54,57 +55,63 @@ st.markdown(
     }
 
     .subtitle, .helper-text {
-        color: #905F66 !important;
+        color: #4779A1 !important;
     }
 
     .model-note {
-        background-color: #E4CEC2;
-        border-left: 4px solid #905F66;
+        background-color: #ACD9DD;
+        border-left: 4px solid #4779A1;
         padding: 14px;
-        color: #260707;
-        border-radius: 4px;
+        color: #15345B;
+        border-radius: 5px;
     }
 
     div[data-testid="stForm"] {
         background-color: #FFFFFF;
-        border: 1px solid #E4CEC2;
-        border-radius: 6px;
+        border: 1px solid #ACD9DD;
+        border-radius: 7px;
         padding: 1.25rem;
+    }
+
+    div[data-testid="stNumberInput"] label {
+        color: #15345B !important;
+        font-weight: 500;
     }
 
     div[data-testid="stNumberInput"] input {
         background-color: #FFFFFF !important;
-        color: #260707 !important;
-        border: 1px solid #E4CEC2 !important;
+        color: #15345B !important;
+        border: 1px solid #ACD9DD !important;
     }
 
     div[data-testid="stFormSubmitButton"] button {
-        background-color: #4E0911;
+        background-color: #15345B;
         color: #FFFFFF;
-        border: 1px solid #4E0911;
+        border: 1px solid #15345B;
         border-radius: 5px;
         font-weight: 600;
     }
 
     div[data-testid="stFormSubmitButton"] button:hover {
-        background-color: #905F66;
-        border-color: #905F66;
+        background-color: #4779A1;
+        border-color: #4779A1;
         color: #FFFFFF;
     }
 
     div[data-testid="stExpander"] {
-        background-color: #FFFFFF;
-        border: 1px solid #E4CEC2;
+        background-color: #F5F4F4;
+        border: 1px solid #ACD9DD;
         border-radius: 6px;
     }
 
     .footer-note {
-        color: #905F66 !important;
+        color: #4779A1 !important;
         text-align: center;
         font-size: 0.78rem;
         margin-top: 2rem;
     }
 </style>
+
     """,
     unsafe_allow_html=True
 )
