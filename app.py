@@ -28,9 +28,7 @@ st.set_page_config(
 
 st.markdown(
     """
-    
-
-
+ 
 <style>
     /* MAIN PAGE */
     .stApp {
@@ -44,21 +42,25 @@ st.markdown(
 
     .block-container {
         max-width: 680px;
-        padding: 1rem 1rem 1.5rem 1rem;
+        padding-top: 2rem !important;
+        padding-bottom: 1.5rem !important;
     }
 
-    /* HEADINGS */
-    h1, h2, h3 {
-        color: #292929 !important;
-    }
-
+    /* MAIN TITLE */
     h1 {
+        color: #292929 !important;
         font-size: 1.4rem !important;
         font-weight: 650 !important;
-        margin-bottom: 0.2rem !important;
+        line-height: 1.5 !important;
+        padding-top: 0.2rem !important;
+        padding-bottom: 0.2rem !important;
+        margin-top: 0 !important;
+        margin-bottom: 0.4rem !important;
+        overflow: visible !important;
     }
 
     h2, h3 {
+        color: #292929 !important;
         font-size: 1rem !important;
     }
 
@@ -193,6 +195,7 @@ st.markdown(
         margin-top: 1rem;
     }
 </style>
+
 
 
     """,
