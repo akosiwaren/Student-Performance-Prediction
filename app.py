@@ -1,3 +1,99 @@
+    required behavioral predictors.
+    </p>
+    """,
+    unsafe_allow_html=True
+)
+
+labels = {
+    "Submission.Actions": "Submission Actions",
+    "Quiz.Actions": "Quiz Actions",
+    "Forum.Actions": "Forum Actions",
+    "Create.Actions": "Create Actions",
+    "Read.Actions": "Read Actions",
+    "Update.Actions": "Update Actions",
+    "Delete.Actions": "Delete Actions",
+    "Days.Logged.In": "Days Logged In"
+}
+
+defaults = {
+    "Submission.Actions": 10,
+    "Quiz.Actions": 5,
+    "Forum.Actions": 2,
+    "Create.Actions": 10,
+    "Read.Actions": 100,
+    "Update.Actions": 5,
+    "Delete.Actions": 0,
+    "Days.Logged.In": 10
+}
+
+with st.form("prediction_form"):
+
+    left, right = st.columns(2)
+
+    values = {}
+
+    for i, feature in enumerate(metadata["raw_features"]):
+
+        column = left if i % 2 == 0 else right
+
+        with column:
+
+            values[feature] = st.number_input(
+                labels[feature],
+                min_value=0,
+                value=defaults[feature],
+                step=1
+            )
+
+    submitted = st.form_submit_button(
+        "Predict Performance",
+        type="primary",
+        use_container_width=True
+    )
+
+
+# ------------------------------------------
+# PREDICTION
+# ------------------------------------------
+
+if submitted:
+
+    raw_input = pd.DataFrame(
+        [values],
+        columns=metadata["raw_features"]
+    )
+
+    model_input = engineer_features(raw_input)
+
+    prediction = model.predict(model_input)[0]
+
+    probabilities = model.predict_proba(model_input)[0]
+
+    class_probabilities = dict(
+        zip(model.classes_, probabilities)
+    )
+
+    high_prob = float(
+        class_probabilities.get("High", 0)
+    )
+
+    low_prob = float(
+        class_probabilities.get("Low", 0)
+    )
+
+    st.divider()
+
+    st.markdown(
+        '<p class="section-heading">Prediction Result</p>',
+        unsafe_allow_html=True
+    )
+
+    if prediction == "High":
+
+        st.success("Predicted Category: High Performance")
+
+    else:
+
         st.warning("Predicted Category: Low Performance")
 
     col1, col2 = st.columns(2)
@@ -62,41 +158,3 @@ with st.expander("Model Details and Evaluation"):
     st.write(
         f"**ROC-AUC:** {metadata['roc_auc']:.3f}"
     )
-
-    st.write("**Classification Report**")
-
-    report_df = pd.DataFrame(
-        metadata["classification_report"]
-    ).transpose()
-
-    st.dataframe(
-        report_df.round(3),
-        use_container_width=True
-    )
-
-    st.write("**Confusion Matrix**")
-
-    confusion_df = pd.DataFrame(
-        metadata["confusion_matrix"],
-        index=["Actual High", "Actual Low"],
-        columns=["Predicted High", "Predicted Low"]
-    )
-
-    st.dataframe(
-        confusion_df,
-        use_container_width=True
-    )
-
-
-# ------------------------------------------
-# FOOTER
-# ------------------------------------------
-
-st.markdown(
-    """
-    <p class="footer-note">
-    Machine Problem 3 | Student Performance Prediction System
-    </p>
-    """,
-    unsafe_allow_html=True
-)
