@@ -29,124 +29,96 @@ st.set_page_config(
 st.markdown(
     """
     
+
 <style>
-    /* MAIN PAGE */
     .stApp {
-        background-color: #FFFFFF;
+        background: #FFFFFF;
         color: #292929;
     }
 
-    [data-testid="stHeader"] {
-        background-color: #FFFFFF;
-    }
-
     .block-container {
-        max-width: 780px;
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
-    }
-
-    /* HEADINGS */
-    h1, h2, h3 {
-        color: #292929 !important;
+        max-width: 680px;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
     }
 
     h1 {
-        font-size: 1.7rem !important;
-        font-weight: 650 !important;
-        margin-bottom: 0.3rem !important;
+        font-size: 1.4rem !important;
+        margin-bottom: 0.2rem !important;
     }
 
-    /* TEXT */
+    h2, h3 {
+        font-size: 1rem !important;
+    }
+
     .subtitle, .helper-text {
         color: #666666 !important;
-        font-size: 0.9rem;
+        font-size: 0.78rem !important;
+        margin-bottom: 0.3rem !important;
     }
 
     .section-heading {
         color: #292929;
-        font-size: 1rem;
+        font-size: 0.95rem;
         font-weight: 600;
         margin-bottom: 0.2rem;
     }
 
-    /* MODEL INFORMATION */
     .model-note {
-        background-color: #F8F9FA;
+        background: #F8F9FA;
         border: 1px solid #E5E5E5;
-        border-left: 4px solid #8B3A45;
-        padding: 10px 12px;
+        border-left: 3px solid #8B3A45;
+        padding: 8px 10px;
         color: #292929;
-        border-radius: 6px;
-        font-size: 0.88rem;
+        border-radius: 5px;
+        font-size: 0.78rem;
+        margin-bottom: 0.5rem;
     }
 
-    /* INPUT FORM */
     div[data-testid="stForm"] {
-        background-color: #F8F9FA;
+        background: #F8F9FA;
         border: 1px solid #E5E5E5;
-        border-radius: 8px;
-        padding: 0.8rem 1rem;
-    }
-
-    /* REDUCE INPUT SPACING */
-    div[data-testid="stNumberInput"] {
-        margin-bottom: -0.5rem;
+        border-radius: 6px;
+        padding: 0.5rem 0.7rem;
     }
 
     div[data-testid="stNumberInput"] label {
         color: #292929 !important;
-        font-size: 0.85rem !important;
-        font-weight: 500;
+        font-size: 0.72rem !important;
     }
 
     div[data-testid="stNumberInput"] input {
-        background-color: #FFFFFF !important;
+        background: #FFFFFF !important;
         color: #292929 !important;
-        border: 1px solid #DDDDDD !important;
-        border-radius: 5px;
-        font-size: 0.9rem;
+        font-size: 0.8rem !important;
+        min-height: 2rem !important;
     }
 
     div[data-testid="stNumberInput"] button {
         color: #8B3A45 !important;
     }
 
-    /* BUTTON */
     div[data-testid="stFormSubmitButton"] button {
-        background-color: #8B3A45;
+        background: #8B3A45;
         color: #FFFFFF;
-        border: 1px solid #8B3A45;
+        border: none;
         border-radius: 5px;
-        font-size: 0.9rem;
-        font-weight: 600;
-        min-height: 2.4rem;
+        font-size: 0.8rem;
+        min-height: 2.1rem;
+        padding: 0.3rem;
     }
 
-    div[data-testid="stFormSubmitButton"] button:hover {
-        background-color: #71303A;
-        border-color: #71303A;
-        color: #FFFFFF;
-    }
-
-    /* PREDICTION RESULT */
     div[data-testid="stAlert"] {
-        background-color: #F8F9FA !important;
-        border: 1px solid #E5E5E5 !important;
-        border-left: 4px solid #8B3A45 !important;
-        border-radius: 6px;
+        background: #F8F9FA !important;
+        border-left: 3px solid #8B3A45 !important;
+        border-radius: 5px;
     }
 
-    div[data-testid="stAlert"] p {
-        color: #292929 !important;
-    }
-
-    /* METRICS */
     div[data-testid="stMetric"] {
-        background-color: #F8F9FA;
+        background: #F8F9FA;
         border: 1px solid #E5E5E5;
-        border-radius: 6px;
-        padding: 8px 10px;
+        border-radius: 5px;
+        padding: 6px;
     }
 
     div[data-testid="stMetricLabel"],
@@ -154,36 +126,25 @@ st.markdown(
         color: #292929 !important;
     }
 
-    /* EXPANDERS */
     div[data-testid="stExpander"] {
-        background-color: #F8F9FA;
-        border: 1px solid #E5E5E5;
-        border-radius: 6px;
-    }
-
-    div[data-testid="stExpander"] summary {
-        color: #292929 !important;
-    }
-
-    /* TABLES */
-    div[data-testid="stDataFrame"] {
+        background: #F8F9FA;
         border: 1px solid #E5E5E5;
         border-radius: 5px;
     }
 
-    /* DIVIDERS */
-    hr {
-        border-color: #E5E5E5 !important;
-    }
-
-    /* FOOTER */
     .footer-note {
         color: #777777 !important;
         text-align: center;
-        font-size: 0.75rem;
-        margin-top: 1.5rem;
+        font-size: 0.7rem;
+        margin-top: 1rem;
+    }
+
+    hr {
+        border-color: #E5E5E5 !important;
+        margin: 0.6rem 0 !important;
     }
 </style>
+
 
     """,
     unsafe_allow_html=True
